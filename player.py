@@ -30,3 +30,12 @@ class Player():
 
     def move_west(self):
         self.move(dx=-1, dy=0)
+
+    def attack(self, enemy):
+        best_weapon = None
+        max_dmg = 0
+        for i in self.inventory:
+            if isinstance(i, items.Weapon):
+                if i.damage > max.damage:
+                    max_dmg = i.damage
+                    best_weapon = i
