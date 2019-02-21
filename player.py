@@ -39,3 +39,15 @@ class Player():
                 if i.damage > max.damage:
                     max_dmg = i.damage
                     best_weapon = i
+
+        print("You use {} against {}!".format(best_weapon.name, enemy.name))
+        enemy.hp -= best_weapon.damage
+        if not enemy.is_alive():
+            print("You killed {}!".format(enemy.name))
+        else:
+            print("{} HP is {}".format(enemy.name, enemy.hp))
+
+    def do_action(self, actions, **kwargs):
+        action_method = getattr(self, action.method.__name__)
+        if action_method:
+            action_method(**kwargs)

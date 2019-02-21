@@ -1,4 +1,4 @@
-import items, enemies
+import items, enemies, actions, world
 
 class MapTile:
     def __init__(self, x, y):
@@ -10,6 +10,26 @@ class MapTile:
 
     def modify_player(self, player):
         raise NotImplementedError()
+
+    def adjacent_moves(self):
+        """Returns all move actions for adjacent tiles"""
+        moves = []
+        if world.tile_exists(self.x + 1, self.y):
+            moves.append(actions.MoveEast())
+        if world.tile_exists(self.x - 1, self.y):
+            moves.append(actions.MoveWest())
+        if world.tile_exists(self.x, self.y - 1):
+            moves.append(actions.MoveNorth())
+        if world.tile_exists(self.x, self.y + 1):
+        moves.append(actions.MoveSouth())
+    return moves
+
+    def available_actions(self):
+        """Returns all of the available actions in this room."""
+        moves = self.adjacent_moves()
+        moves.append(actions.ViewInventory())
+
+        return moves
 
 class StartingRoom(MapTile):
     def intro_text(self):
