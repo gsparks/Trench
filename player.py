@@ -1,4 +1,5 @@
-import items
+import random
+import items, world
 
 class Player():
     def __init__(self):
@@ -51,3 +52,9 @@ class Player():
         action_method = getattr(self, action.method.__name__)
         if action_method:
             action_method(**kwargs)
+
+    def flee(self, tile):
+        """Moves player randomly to an adjacent tile"""
+        available_moves = tile.adjacent_moves()
+        r = random.randint(0, len(available_moves) -1)
+        self.do_action(available_moves[r])
