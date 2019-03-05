@@ -3,11 +3,11 @@ starting_position = (0, 0)
 
 def load_tiles():
     """Parses a file that describes the world space into the _world object"""
-    with open('resources/map.txt', 'r') as f:
+    with open('resources/map.csv', 'r') as f:
         rows = f.readlines()
-    x_max = len(rows[0].split('\t')) # Assumes all rows contain the same number of tabs
+    x_max = len(rows[0].split(',')) # Assumes all rows contain the same number of tabs
     for y in range(len(rows)):
-        cols = rows[y].split('\t')
+        cols = rows[y].split(',')
         for x in range(x_max):
             tile_name = cols[x].replace('\n', '') # Windows users may need to replace '\r\n'
             if tile_name == 'StartingRoom':
@@ -17,4 +17,3 @@ def load_tiles():
 
 def tile_exists(x, y):
     return _world.get((x, y))
-    

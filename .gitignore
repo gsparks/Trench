@@ -1,1 +1,9 @@
 /venv/
+
+.DS_Store
+__pycache__/actions.cpython-37.pyc
+__pycache__/enemies.cpython-37.pyc
+__pycache__/items.cpython-37.pyc
+__pycache__/player.cpython-37.pyc
+__pycache__/tiles.cpython-37.pyc
+__pycache__/world.cpython-37.pyc

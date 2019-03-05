@@ -21,8 +21,8 @@ class MapTile:
         if world.tile_exists(self.x, self.y - 1):
             moves.append(actions.MoveNorth())
         if world.tile_exists(self.x, self.y + 1):
-        moves.append(actions.MoveSouth())
-    return moves
+            moves.append(actions.MoveSouth())
+        return moves
 
     def available_actions(self):
         """Returns all of the available actions in this room."""

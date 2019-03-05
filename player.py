@@ -27,7 +27,7 @@ class Player():
         self.move(dx=0, dy=1)
 
     def move_east(self):
-        self.move(dx=1 dy=0)
+        self.move(dx=1, dy=0)
 
     def move_west(self):
         self.move(dx=-1, dy=0)

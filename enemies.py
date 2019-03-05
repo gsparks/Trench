@@ -9,7 +9,7 @@ class Enemy:
 
 class GiantSpider(Enemy):
     def __init__(self):
-        super.__init__(name = "Giant Spider" hp = 10, damage = 2)
+        super.__init__(name = "Giant Spider", hp = 10, damage = 2)
 
 class Ogre(Enemy):
     def __init__(self):
