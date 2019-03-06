@@ -106,6 +106,20 @@ class GiantSpiderRoom(EnemyRoom):
             The corpse of a dead spider rots on the ground.
             """
 
+class SnakePitRoom(EnemyRoom):
+    def __init__(self, x, y):
+        super().__init__(x, y, enemies.SnakePit())
+
+    def intro_text(self):
+        if self.enemy.is_alive():
+            return """
+            Another unremarkable part of the cave. You must forge onwards.
+            """
+        else:
+            return """
+            The once crawling pit of snakes is still.
+            """
+
 class FindDaggerRoom(LootRoom):
     def __init__(self, x, y):
         super().__init__(x, y, items.Dagger())
