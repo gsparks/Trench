@@ -37,7 +37,7 @@ class Player():
         max_dmg = 0
         for i in self.inventory:
             if isinstance(i, items.Weapon):
-                if i.damage > max.damage:
+                if i.damage > max_dmg:
                     max_dmg = i.damage
                     best_weapon = i
 

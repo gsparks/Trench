@@ -8,7 +8,7 @@ class MapTile:
     def intro_text(self):
         raise NotImplementedError()
 
-    def modify_player(self, player):
+    def modify_player(self, the_player):
         raise NotImplementedError()
 
     def adjacent_moves(self):
@@ -38,7 +38,7 @@ class StartingRoom(MapTile):
         You can make out four paths, each equally as dark and foreboding.
         """
 
-    def modify_player(self, player):
+    def modify_player(self, the_player):
         # Room has no action on player
         pass
 
@@ -47,11 +47,11 @@ class LootRoom(MapTile):
         self.item = item
         super().__init__(x, y)
 
-    def add_loot(self, player):
-        player.inventory.append(self.item)
+    def add_loot(self, the_player):
+        the_player.inventory.append(self.item)
 
-    def modify_player(self, player):
-        self.add_loot(player)
+    def modify_player(self, the_player):
+        self.add_loot(the_player)
 
 class EnemyRoom(MapTile):
     def __init__(self, x, y, enemy):
@@ -79,8 +79,8 @@ class LeaveCaveRoom(MapTile):
         Victory is yours!
         """
 
-    def modify_player(self, player):
-        player.victory = True
+    def modify_player(self, the_player):
+        the_player.victory = True
 
 class EmptyCavePath(MapTile):
     def intro_text(self):
@@ -88,7 +88,7 @@ class EmptyCavePath(MapTile):
         Another unremarkable part of the cave. You must forge onwards.
         """
 
-    def modify_player(self):
+    def modify_player(self, the_player):
         # Room has no action on player
         pass
 
