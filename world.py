@@ -5,7 +5,7 @@ def load_tiles():
     """Parses a file that describes the world space into the _world object"""
     with open('resources/map.csv', 'r') as f:
         rows = f.readlines()
-    x_max = len(rows[0].split(',')) # Assumes all rows contain the same number of tabs
+    x_max = len(rows[0].split(',')) # Assumes all rows contain the same number of commas
     for y in range(len(rows)):
         cols = rows[y].split(',')
         for x in range(x_max):

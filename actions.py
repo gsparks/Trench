@@ -1,4 +1,5 @@
-import player
+from player import Player
+
 
 class Action():
     def __init__(self, method, name, hotkey, **kwargs):
@@ -27,7 +28,7 @@ class MoveWest(Action):
         super().__init__(method=Player.move_west, name='Move West', hotkey='w')
 
 class ViewInventory(Action):
-    def __init_(self):
+    def __init__(self):
         super().__init__(method=Player.print_inventory, name='View Inventory',  hotkey='i')
 
 class Attack(Action):

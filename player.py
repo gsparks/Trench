@@ -48,7 +48,7 @@ class Player():
         else:
             print("{} HP is {}".format(enemy.name, enemy.hp))
 
-    def do_action(self, actions, **kwargs):
+    def do_action(self, action, **kwargs):
         action_method = getattr(self, action.method.__name__)
         if action_method:
             action_method(**kwargs)
