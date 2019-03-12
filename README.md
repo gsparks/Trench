@@ -23,4 +23,4 @@
            (/`    ( (`          ) )  '-;
             `      '-;         (-'
             ```
- ## Can you navigate the black depths with your wits intact?
+ Can you navigate the black depths with your wits intact?
