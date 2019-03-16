@@ -23,10 +23,10 @@ class Weapon(Item):
     def __str__(self):
         return "{}\n=====\n{}\nValue: {}\nDamage: {}".format(self.name, self.description, self.value, self.damage)
 
-class Rock(Weapon):
+class Light(Weapon):
     def __init__(self):
-        super().__init__(name = "Rock",
-                         description = "A fist-sized rock, suitable for bludgeoning.",
+        super().__init__(name = "Bright Lights",
+                         description = "A set of extremely bright lights. Damaging to life in the darkness.",
                          value = 0,
                          damage = 5)
 
