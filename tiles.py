@@ -34,11 +34,11 @@ class MapTile:
 class StartingRoom(MapTile):
     def intro_text(self):
         return """
-You manuver your submersible back into section 437 of the Trench. The navigation
-system failed some time ago and your only hope of reaching the surface is to
-follow the labyrinth of underwater veins back to the redevous point.
-
-You can make out four paths, each equally as dark and foreboding.
+        You manuver your submersible back into section 437 of the Trench. The navigation
+        system failed some time ago and your only hope of reaching the surface is to
+        follow the labyrinth of underwater veins back to the redevous point.
+        
+        You can make out four passages, each equally as dark and foreboding.
         """
 
     def modify_player(self, the_player):
@@ -75,8 +75,8 @@ class EnemyRoom(MapTile):
 class LeaveCaveRoom(MapTile):
     def intro_text(self):
         return """
-        You see a bright light in the distance...
-        ... it grows as you get closer! It's sunlight!
+        In the distance you can make out a bright light.
+        You aren't dying. It's the the rendevous point!
 
 
         Victory is yours!
@@ -88,25 +88,30 @@ class LeaveCaveRoom(MapTile):
 class EmptyCavePath(MapTile):
     def intro_text(self):
         return """
-        Another unremarkable part of the cave. You must forge onwards.
+        Another lifeless portion of the Trench.
+        You could really use some sleep.
+
+        You must keep going.
         """
 
     def modify_player(self, the_player):
         # Room has no action on player
         pass
 
-class GiantSpiderRoom(EnemyRoom):
+class GiantCrabRoom(EnemyRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, enemies.GiantSpider())
+        super().__init__(x, y, enemies.GiantCrab())
 
     def intro_text(self):
         if self.enemy.is_alive():
             return """
-            Another unremarkable part of the cave. You must forge onwards.
+            A prehistoric claw clamps down on your rudder.
+            Shaken, you turn around to find a one-armed crab the size of your craft.
+            It hasn't eaten in months.
             """
         else:
             return """
-            The corpse of a dead spider rots on the ground.
+            The corpse of the dead crab has already started to vanish.
             """
 
 class SnakePitRoom(EnemyRoom):
