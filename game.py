@@ -45,7 +45,7 @@ def play():
         room.modify_player(player)
         # Check again since the room could have changed the player's state
         if not player.is_alive():
-            print("You have succumb to the will of the Trench.")
+            print("You have perished. You are now one with the Trench.")
         if player.is_alive() and not player.victory:
             print(color + "Choose an action:\n" + res)
             available_actions = room.available_actions()
