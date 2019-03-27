@@ -44,6 +44,8 @@ def play():
         room = world.tile_exists(player.location_x, player.location_y)
         room.modify_player(player)
         # Check again since the room could have changed the player's state
+        if not player.is_alive():
+            print("You have succumb to the will of the Trench.")
         if player.is_alive() and not player.victory:
             print(color + "Choose an action:\n" + res)
             available_actions = room.available_actions()
